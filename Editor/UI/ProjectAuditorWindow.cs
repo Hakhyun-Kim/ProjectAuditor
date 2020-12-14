@@ -394,18 +394,20 @@ namespace Unity.ProjectAuditor.Editor.UI
                 DrawMode();
                 DrawFilters();
                 DrawActions();
-
-                if (m_ShouldRefresh || m_AnalysisState == AnalysisState.Completed)
-                {
-                    RefreshDisplay();
-                    m_ShouldRefresh = false;
-                }
-
                 DrawAnalysis();
             }
             else
             {
                 DrawHelpbox();
+            }
+        }
+
+        private void Update()
+        {
+            if (m_ShouldRefresh || m_AnalysisState == AnalysisState.Completed)
+            {
+                RefreshDisplay();
+                m_ShouldRefresh = false;
             }
         }
 
