@@ -301,7 +301,9 @@ Shader ""Custom/MyEditorShader""
 
             foreach (var variant in variants)
             {
-                Debug.Log(variant.GetCustomProperty((int)ShaderVariantProperty.Keywords));
+                Debug.Log("Project Auditor variant debugging: " + variant.GetCustomProperty((int)ShaderVariantProperty.Keywords));
+                Debug.LogWarning("Project Auditor variant debugging: " + variant.GetCustomProperty((int)ShaderVariantProperty.Keywords));
+                Console.WriteLine("Project Auditor variant debugging: " + variant.GetCustomProperty((int)ShaderVariantProperty.Keywords));
             }
 
             // check custom properties
