@@ -278,7 +278,7 @@ Shader ""Custom/MyEditorShader""
 
             Assert.True(keywords.Any(key => key.Equals(s_KeywordName)));
 
-            var variants = issues.Where(i => i.description.Equals("Custom/MyTestShader"));
+            var variants = issues.Where(i => i.description.Equals("Custom/MyTestShader")).ToArray();
             Assert.Positive(variants.Count());
 
             // check custom property
@@ -296,8 +296,13 @@ Shader ""Custom/MyEditorShader""
 
             Assert.True(keywords.Any(key => key.Equals(s_KeywordName)));
 
-            var variants = issues.Where(i => i.description.Equals("Custom/ShaderUsingBuiltInKeyword"));
+            var variants = issues.Where(i => i.description.Equals("Custom/ShaderUsingBuiltInKeyword")).ToArray();
             Assert.Positive(variants.Count(), "No shader variants found");
+
+            foreach (var variant in variants)
+            {
+                Debug.Log(variant.GetCustomProperty((int)ShaderVariantProperty.Keywords));
+            }
 
             // check custom properties
             Assert.True(variants.Any(v => v.GetCustomProperty((int)ShaderVariantProperty.Keywords).Equals("<no keywords>")), "No shader variants found without INSTANCING_ON keyword");
@@ -317,7 +322,7 @@ Shader ""Custom/MyEditorShader""
 
             Assert.True(keywords.Any(key => key.Equals(s_KeywordName)));
 
-            var variants = issues.Where(i => i.description.Equals("Custom/MySurfShader"));
+            var variants = issues.Where(i => i.description.Equals("Custom/MySurfShader")).ToArray();
             Assert.Positive(variants.Count());
 
             // check custom property
