@@ -1,15 +1,15 @@
 # About Project Auditor
-Project Auditor is a static analysis tool for Unity projects, which finds potential issues related to memory consumption, performance and other areas.
+Project Auditor 는 
+Project Auditor 는 유니티 프로젝트를 정적으로 분석해주는 툴입니다. Project Auditor 는 스크립트와 세팅을 분석하여 성능에 문제가 될만한 부분을 찾아줍니다.
 
-Use the Project Auditor package to analyse scripts and settings of your project. The tool creates a list of potential issues which have been identified, then the user will need to determine whether they are real issues or not.
+Project Auditor 패키지를 사용하여 스크립트와 Project Setting 을 분석할 수 있으며, 기존에 문제가 되었던 부분들을 모아서 보여줍니다. 이후에 사용자가 직접 실제로 문제가 되는 부분인지 아닌 지 확인할 수 있습니다.
 
 ## Preview package
-This package is available as a preview, so it is not ready for production use. The features and documentation in this package might change before it is verified for release.
-
+이 패키지는 프리뷰 버전 이며, 기능과 문서는 변경될 수 있습니다.
 
 # Installing Project Auditor
-Project Auditor can be installed as a package in Unity 2018+, or added to the `Assets` folder in previous versions of Unity.
-### Unity 2018 or newer
+Project Auditor 는 Unity 2018 버전부터 패키지로 설치할 수 있습니다.
+
 Add `com.unity.project-auditor` as a dependency to the project `Packages/manifest.json` file:
 
 ```
@@ -20,58 +20,50 @@ Add `com.unity.project-auditor` as a dependency to the project `Packages/manifes
 }
 ```
 
-Alternatively it's possible to clone the repository, or decompress the pre-packaged zip, to the `Packages` folder of your project.
-
-### Unity 2017 or older
-Clone this repository to your Unity project as follows:
-
-```
-cd Assets
-git clone https://github.com/Unity-Technologies/ProjectAuditor.git
-```
-
-<a name="UsingProjectAuditor"></a>
 # Using Project Auditor
-To open the Project Auditor window in Unity, go to Window => Analysis => Project Auditor.
+Project Auditor 에디터 윈도우는 Window => Analysis => Project Auditor 를 이용하여 열 수 있으며
 
 <img src="images/window-menu.png">
 
-Once the Project Auditor window is opened. Press *Analyze* to analyse the project.
+Auditor 윈도우가 열리면 *Analyze* 버튼을 눌러 프로젝트 분석을 시작합니다.
 
 <img src="images/intro.png">
 
-The analysis might take several seconds, depending on how large the project is. Once the analysis completes, Project Auditor will show the report of potential issues, filters and additional information.
+분석은 프로젝트 크기에 따라 보통 몇초 정도 걸립니다. 분석이 끝나면  Project Auditor 는 잠재적인 문제 사항들을 리포트합니다.
 
 <img src="images/overview.png">
 
-The issues are categorized based on whether they are found in code or project settings. The active category can also be changed.
+해당 이슈들은 코드인지 프로젝트 세팅인지에 따라 탭으로 구분되어있으며, 해당 탭은 변경 가능합니다.
 
 <img src="images/category.png">
 
-The filters allow the user to search through the list of potential issues by string, Assembly and other criterias.
+필터를 이용하여 String, Assembly, 또는 다른 특성을 이용하여 검색할 수 있습니다.
 
 <img src="images/filters.png">
 
+이슈들은 테이블로 표시되며, 테이블에서는 문제 영역, 파일명 등을 볼 수 있습니다. 
 The issues are displayed in a table containing some details regarding impacted area, filename, etc.
 
 <img src="images/issues.png">
 
-The panels on the right hand side of the window provide additional information regarding the selected issue. The top panel shows an extended description of the problem, the next panel down contains a recommendation on how to solve the problem, and (when viewing script issues) the bottom panel shows an inverted call tree which allows you to see all of the code paths which lead to the currently-selected line of code.
+오른쪽 윈도우에서는 선택한 문제에 대해 추가적이 사항을 확인할 수 있습니다. 맨 위의 창에서는 해당 문제에 대한 제사한 설명을 확인할 수 있으며, 바로 아래에서 추천하는 솔루션이 있습니다. 맨 아래에는 현재 선택한 함수의 콜스택을 볼 수 있습니다.
 
 <img src="images/panels.png">
 
-The mute/unmute buttons can be used to silence specific issues, or groups of issues, that are currently selected.
+Mute/Unmute 버턴을 이용하여 특정 이슈(그룹)을 무시할 수 있습니다.
 
 <img src="images/mute.png">
 
 ## Running from command line
-Project Auditor analysis can be executed from command line by launching the editor in batch mode. This requires an editor script that:
 
-* Creates a ProjectAuditor object
-* Runs the analysis
-* Exports the report
+Project Auditor 는 editor 를 배치모드로 실행 후, command line으로 실행 할 수 있습니다.
+이 때 Editor Script 가 필요한 데, 아래와 같은 코드가 필요합니다.
 
-Here is an example:
+* ProjectAuditor object 생성
+* 분석 실행
+* 리포트 내보내기
+
+예제:
 
 ```
 using Unity.ProjectAuditor.Editor;
@@ -90,23 +82,25 @@ public static class ProjectAuditorCI
     }
 }
 ```
-For more information on how to run Unity via command line, please see the [manual](https://docs.unity3d.com/Manual/CommandLineArguments.html).
+Unity를 command line으로 실행하기 위한 좀 더 자세한 정보는 
+아래 문서에서 확인 가능합니다.
+[manual](https://docs.unity3d.com/kr/current/Manual/CommandLineArguments.html).
 
 # Technical details
 ## Requirements
-This version of Project Auditor is compatible with the following versions of the Unity Editor:
+현재 버전의 Project Auditor는 아래 Unity 버전이 필요합니다.
 
 * 5.6 and later. However, Unity 2018 is required to install Project Auditor as a package.
 
-## Known limitations
-Here are several Project Auditor's known limitations:
+## 알려진 이슈
+Project Auditor 사용 시 알려진 이슈입니다.
 
-* It reports issues in code that might be stripped by the build process.
-* It is unable to distinguish between cold and hot-paths.
-* The call tree analysis does not support virtual methods.
+* 빌드 과정중에 strip 될 코드들에 대해서도 문제를 리포트 합니다.
+* Cold 와 Hot path 를 구분할 수 없습니다.
+* Call tree 분석의 경우 가상함수를 지원하지 않습니다.
 
 ## Package contents
-The following table indicates the package directory structure:
+패키지 구조는 아래와 같습니다.:
 
 |Location|Description|
 |---|---|
