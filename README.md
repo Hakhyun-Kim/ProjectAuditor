@@ -8,7 +8,7 @@ Project Auditor 는 유니티 프로젝트를 정적으로 분석해주는 툴�
 모든 유니티 버전에 사용가능합니다. 좀 더 자세한 사항은 뒤의 Installation 을 참조하세요.
 
 ### Disclaimer
-이 프로젝트는 유니티 개발자가 개발했습니다만, 유니티에서 공식적으로 서포트하지 않습니다. 
+이 프로젝트는 유니티 공식 서포트에 포함되지 . 
 
 ### License
 Project Auditor is licensed under the [Unity Package Distribution License](LICENSE.md) as of November 18th 2020. Before then, the MIT license was in play.
