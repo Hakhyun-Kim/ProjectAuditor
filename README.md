@@ -1,20 +1,21 @@
 # Project Auditor
-Project Auditor is a static analysis tool for Unity Projects. Project Auditor analyzes scripts and settings of a Unity project and reports a list of potential problems that affect performance.
+Project Auditor 는 유니티 프로젝트를 정적으로 분석해주는 툴입니다. Project Auditor 는 스크립트와 세팅을 분석하여 성능에 문제가 될만한 부분을 찾아줍니다. 
 
 ### Current Status
-This project is still experimental and will likely change heavily in the future. So far this tool has only been tested with a few projects, therefore it might not work correctly depending on the version of Unity and the content of the project.
+이 프로젝트는 Experimental 상태이며 추후에 많이 변경될 가능성이 높습니다. 특정 버전의 유니티와 제한된 컨텐츠에서 사용가능합니다.
 
 ### Compatibility
-All versions of Unity should be compatible, however, check the Installation instructions for more details.
+모든 유니티 버전에 사용가능합니다. 좀 더 자세한 사항은 두의 Installation 을 참조하세요.
 
 ### Disclaimer
-Although this project is developed by Unity employees, it is not officially supported by Unity and it is not on Unity's roadmap. Feedback and requests are more than welcome, please enter them as issues.
+이 프로젝트는 유니티 개발자가 개발했습니다만, 유니티에서 공식적으로 서포트하거나, 로드맵이 있지 않습니다. 
 
 ### License
 Project Auditor is licensed under the [Unity Package Distribution License](LICENSE.md) as of November 18th 2020. Before then, the MIT license was in play.
 
 ## Installation
-Project Auditor can be installed as a package in Unity 2018+, or added to the `Assets` folder in previous versions of Unity.
+Project Auditor 2018 이후 버전부터 패키지로 설치 가능합니다.
+
 ### Unity 2018 or newer
 Add `com.unity.project-auditor` as a dependency to the project `Packages/manifest.json` file:
 
@@ -26,17 +27,5 @@ Add `com.unity.project-auditor` as a dependency to the project `Packages/manifes
 }
 ```
 
-Alternatively it's possible to clone the repository, or decompress the pre-packaged zip, to the `Packages` folder of your project.
-
-IMPORTANT: Project Auditor is supposed to work as a Package as of Unity 2018, therefore it should NOT live in the `Assets` folder.
-
-### Unity 2017 or older
-Clone this repository to your Unity project as follows:
-
-```
-cd Assets
-git clone https://github.com/Unity-Technologies/ProjectAuditor.git
-```
-
 ## How to Use
-The Project Auditor editor window can be open via *Window => Analysis => Project Auditor*. Click on Analyze, then go through the list of potential issues to determine whether they are actual problems in your project.
+Project Auditor 에디터 윈도우는 *Window => Analysis => Project Auditor* 를 이용하여 열 수 있으며, Analyze 버튼을 클릭하면 다양한 분석 결과를 볼 수 있습니다.
